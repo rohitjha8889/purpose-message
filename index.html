@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article>
+      <div class="envelope-container">
+        <div class="graphic" id="please">
+          <span>Please Open </span>
+        </div>
+        <button class="close-btn" id="close-btn" onclick="toggleEnvelope()">
+          close envelope
+        </button>
+        <button class="heart-btn" id="heart-btn" onclick="toggleEnvelope()">
+          &#10084;
+          <span class="heart-btn-text">click</span>
+        </button>
+
+        <div class="message-letter">
+          <p>
+            आपकी हर अदा मुझे मोहब्बत सी लगती है, पल भर की जुदाई भी सदियों सी
+            लगती है, ना जाने कैसा असर हो गया इस मोहब्बत का, अब हर पल मुझे आपकी
+            जरूरत सी लगती है।.
+          </p>
+          <p>
+            इस दीवानगी में हम कुछ ऐसा कर जाएंगे, मोहब्बत की सारी हदो को पार कर
+            जाएंगे, वादा है दिल बनकर तुम मेरे सीने में धड़कोगे, और सांस बनकर हम
+            आपके दिल में उतर जाएंगे।
+          </p>
+
+          <p>
+            वो जो हमारे लिए ख़ास होते हैं, जिनके लिए दिल में एहसास होते हैं,
+            चाहे वक़्त कितना भी दूर कर दे उन्हें, पर दूर रहकर भी वो दिल के पास
+            होते हैं…
+          </p>
+          <p>
+            मुस्कराहट का कोई मोल नहीं होता कुछ रिश्तो का कोई तोल नहीं होता वैसे
+            लोग तो मिल जाते है हर मोड़ पर पर कोई आप की तरह अनमोल नहीं होता ।
+          </p>
+        </div>
+        <div class="envelope-flap">
+          <svg class="inner">
+            <polygon
+              class="inner-polygon"
+              id="inner-polygon"
+              points="5,0 345,0 175,145"
+            ></polygon>
+          </svg>
+          <svg class="outer" id="outer">
+            <polygon
+              class="outer-polygon"
+              points="5,150 345,150 175,0"
+            ></polygon>
+          </svg>
+        </div>
+        <div class="envelope-base"></div>
+      </div>
+
+      <audio id="audioPlayer" src="./song.mp3"></audio>
+    </article>
+    <script src="./index.js" />
+  </body>
+</html>

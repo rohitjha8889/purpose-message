@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+:root {
+  /* COLORS */
+  --red-dk: #ba0025;
+  --red-md: #dc143c;
+  --pink-dk: #eb0674;
+  --pink-lt: #ffb6c1;
+  --purple-dk: #98006a;
+  --purple-md: #ce0090;
+
+  --neutral-dk: #333;
+  --neutral-md: #999;
+  --neutral-mdlt: lightgray;
+  --neutral-lt: #fff;
+  /* FONT */
+  --font-sans: "Poppins", sans-serif;
+  --font-display: "Lobster", sans-serif;
+}
+
+/* MAIN STYLES */
+body {
+  background: var(--pink-lt);
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  font-size: 20px;
+  margin: 20px 0;
+}
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--red-dk);
+  text-shadow: 1px 2px 2px white;
+}
+button {
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+/* this article is used to center the component within the viewport */
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 120vh;
+  width: 100%;
+  /* border: 2px solid green; */
+}
+
+/* MESSAGES */
+.message {
+  text-align: center;
+  margin-top: 40px;
+}
+.message-2 {
+  display: none;
+}
+
+/* ENVELOPE */
+
+/* envelope-container contains all elements of the featured component (you can think of it like your canvas area) */
+.envelope-container {
+  position: relative; /* needed to allow for positioning some elements as absolute within the container */
+  /* top: 100px; */
+  height: 450px;
+  /* border: 2px solid green; */
+  width: 350px;
+}
+.envelope-base {
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+  width: 100%;
+  border: 1px solid var(--neutral-md);
+  border-radius: 5px;
+  
+  /* border: 2px solid red; */
+  background: #fdd11c;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3), 0px 8px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.envelope-flap {
+  position: absolute;
+  bottom: 50px;
+  height: 300px;
+  width: 100%;
+  z-index: 10;
+}
+.inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+.inner-polygon {
+  fill: #fdd11c;
+  stroke: var(--neutral-md);
+  stroke-width: 1;
+}
+.inner-open {
+  fill: var(--neutral-mdlt);
+}
+.outer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+}
+.outer-polygon {
+  fill: #fdd11c;
+  stroke: var(--neutral-md);
+  stroke-width: 1;
+}
+.outer-open {
+  opacity: 1;
+}
+
+/* HEART BUTTON */
+.heart-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 20px;
+  left: 145px;
+  color: var(--red-md);
+  font-size: 60px;
+  z-index: 1000;
+}
+.heart-btn:hover {
+  color: var(--purple-dk);
+}
+.heart-btn-text {
+  position: absolute;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--neutral-lt);
+  z-index: 1000;
+}
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: var(--neutral-dk);
+  background: var(--pink-lt);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: none;
+  z-index: 10000;
+}
+.close-btn:hover {
+  color: var(--neutral-lt);
+  background: var(--red-md);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* REUSABLE TOGGLE CLASSES */
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+/* FLOATING HEARTS */
+.message-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: white;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 20;
+    transition: top 0.1s ease-in-out, opacity 0.2s ease-in-out;
+  }
+  
+  .message-letter p{
+      font-size: 14px;
+      font-weight: 600;
+  }
+
+.message-letter p:nth-of-type(even){
+  color: var(--pink-dk);
+  
+}
+
+  
+  .envelope-container.open .message-letter {
+    top: 20%;
+    opacity: 0.8;
+    z-index: 11;
+    transition: top 4s ease-in-out, opacity 5s ease-in-out;
+  }
+
+  .graphic{
+    /* border: 2px solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+  }
+
+  .no-graphic{
+    opacity: 0;
+  }
+
+  .graphic span{
+    font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--red-dk);
+  text-shadow: 1px 2px 2px white;
+ 
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
