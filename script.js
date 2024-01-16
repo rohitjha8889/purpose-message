@@ -8,6 +8,8 @@ const heartBtn = document.getElementById("heart-btn");
 const audioPlayer = document.getElementById("audioPlayer");
 const please = document.getElementById("please");
 
+alert("Javascript is running")
+
 function toggleEnvelope() {
   innerPolygon.classList.toggle("inner-open");
   outer.classList.toggle("outer-open");
